@@ -75,4 +75,5 @@ function game(player, computer){
         }
     }
 }
+let button= document.queryselector("button");
 button.onclick=game(playerChoice(), computerPlay());
