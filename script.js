@@ -74,5 +74,13 @@ function game(player, computer){
             alert(game);
         }
     }
-    if (compScore>playerScore)
+    if (compScore>playerScore){
+        alert("Computer wins.");
+    }
+    else if (playerScore>compScore){
+        alert("You win.");
+    }
+    else{
+    alert("Tie game.")
+    }
 }
