@@ -81,6 +81,6 @@ function game() {
     alert("Tie game.")
   }
 }
-let button = document.querySelector("button");
+//let button = document.querySelector("button");
 
-button.onclick = game()
+//button.onclick = game()
