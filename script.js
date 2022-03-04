@@ -13,10 +13,11 @@ function computerPlay() {
 
 
 function playRound(playerChoice, computerChoice) {
-  if (playerChoice === "end") {
-    quit();
-  } else if (playerChoice === computerChoice) {
+
+  console.log(`player choice was ${playerChoice} and computer chose ${computerChoice}`);
+  if (playerChoice === computerChoice) {
     return "Tie."
+
   } else if (playerChoice === "paper") {
 
     if (computerChoice === "rock") {
@@ -34,7 +35,7 @@ function playRound(playerChoice, computerChoice) {
     }
   } else if (playerChoice === "scissors") {
     if (computerChoice === "paper") {
-      return "You win.";
+      return "You win that round.";
     } else if (computerChoice === "rock") {
       alert("You lose. Rock beats scissors.");
       return "computer";
@@ -45,28 +46,33 @@ function playRound(playerChoice, computerChoice) {
 }
 
 function playerChoice() {
-  let pick = prompt("Pick rock, paper, or scissors. Type end to end");
+  let pick = prompt("Pick rock, paper, or scissors.");
   let final = pick.toLowerCase();
   return final;
 }
 
 function game() {
+  let rounds = prompt("How many rounds?");
+  alert(`Best out of ${rounds}.`);
   let playerScore = 0;
   let compScore = 0;
   let game = 0;
-  let rounds=prompt("How many rounds?");
-  for (let i = 0; i >= rounds; i++) {
+  let i = 0;
+  while (i < rounds) {
+    i++
     game = playRound(playerChoice(), computerPlay());
-    if (game === "Tie" || game === "That is not an option") {
-      alert(game);
+
+    if (game === "Tie." || game === "That is not an option.") {
+      alert(game + `  Score is Player:${playerScore}  Computer:${compScore}`);
     } else if (game === "You win that round.") {
       playerScore++;
-      alert(game);
+      alert(game + ` Score is Player:${playerScore}  Computer:${compScore}`);
     } else {
       compScore++;
-      alert("Computer won that round.");
+      alert(`Computer won that round.  Score is Player:${playerScore}  Computer:${compScore}`);
     }
   }
+
   if (compScore > playerScore) {
     alert("Computer wins the game.");
   } else if (playerScore > compScore) {
@@ -75,6 +81,6 @@ function game() {
     alert("Tie game.")
   }
 }
-
+let button = document.querySelector("button");
 
 button.onclick = game()
