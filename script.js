@@ -74,4 +74,5 @@ function game(player, computer){
             alert(game);
         }
     }
+    if (compScore>playerScore)
 }
