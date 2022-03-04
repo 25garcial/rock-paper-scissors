@@ -14,13 +14,13 @@ function computerPlay() {
 
 function playRound(playerChoice, computerChoice) {
   if (playerChoice === "end") {
-    break;
+    quit();
   } else if (playerChoice === computerChoice) {
     return "Tie."
   } else if (playerChoice === "paper") {
 
     if (computerChoice === "rock") {
-      return "You win.";
+      return "You win that round.";
     } else if (computerChoice === "scissors") {
       alert("You lose. Scissors beats paper.");
       return "computer";
@@ -28,9 +28,9 @@ function playRound(playerChoice, computerChoice) {
   } else if (playerChoice === "rock") {
     if (computerChoice === "paper") {
       alert("You lose. Paper beats rock.")
-      return computer;
+      return "computer";
     } else if (computerChoice === "scissors") {
-      return "You win.";
+      return "You win that round.";
     }
   } else if (playerChoice === "scissors") {
     if (computerChoice === "paper") {
@@ -50,30 +50,31 @@ function playerChoice() {
   return final;
 }
 
-function game(player, computer) {
+function game() {
   let playerScore = 0;
   let compScore = 0;
   let game = 0;
-  for (let i = 0; i >= 5; i++) {
-    game = playRound(player, computer);
+  let rounds=prompt("How many rounds?");
+  for (let i = 0; i >= rounds; i++) {
+    game = playRound(playerChoice(), computerPlay());
     if (game === "Tie" || game === "That is not an option") {
       alert(game);
-    } else if (game === "You win.") {
+    } else if (game === "You win that round.") {
       playerScore++;
       alert(game);
     } else {
       compScore++;
-      alert(game);
+      alert("Computer won that round.");
     }
   }
   if (compScore > playerScore) {
-    alert("Computer wins.");
+    alert("Computer wins the game.");
   } else if (playerScore > compScore) {
-    alert("You win.");
+    alert("You win the game.");
   } else {
     alert("Tie game.")
   }
 }
-let button = document.querySelector("button");
 
-button.onclick = game(playerChoice(), computerPlay())
+
+button.onclick = game()
