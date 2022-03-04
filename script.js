@@ -13,7 +13,9 @@ function computerPlay() {
 
 
 function playRound(playerChoice, computerChoice) {
-
+  if (playerChoice === "end") {
+    quit();
+  }
   console.log(`player choice was ${playerChoice} and computer chose ${computerChoice}`);
   if (playerChoice === computerChoice) {
     return "Tie."
@@ -41,18 +43,25 @@ function playRound(playerChoice, computerChoice) {
       return "computer";
     }
   } else {
+    
     return "That is not an option.";
+
   }
 }
 
 function playerChoice() {
-  let pick = prompt("Pick rock, paper, or scissors.");
+  let pick = prompt("Pick rock, paper, or scissors.  Type end to end");
   let final = pick.toLowerCase();
   return final;
 }
 
 function game() {
-  let rounds = prompt("How many rounds?");
+
+let rounds= prompt("How many rounds?");
+while (typeof(Number(rounds))!="number"){
+
+  rounds = prompt("How many rounds?");
+  }
   alert(`Best out of ${rounds}.`);
   let playerScore = 0;
   let compScore = 0;
@@ -81,6 +90,3 @@ function game() {
     alert("Tie game.")
   }
 }
-let button = document.querySelector("button");
-
-button.onclick = game()
