@@ -13,15 +13,14 @@ function computerPlay() {
 
 
 function playRound(playerChoice, computerChoice) {
-
-  console.log(`player choice was ${playerChoice} and computer chose ${computerChoice}`);
-  if (playerChoice === computerChoice) {
+  if (playerChoice === "end") {
+    break;
+  } else if (playerChoice === computerChoice) {
     return "Tie."
-
   } else if (playerChoice === "paper") {
 
     if (computerChoice === "rock") {
-      return "You win that round.";
+      return "You win.";
     } else if (computerChoice === "scissors") {
       alert("You lose. Scissors beats paper.");
       return "computer";
@@ -29,13 +28,13 @@ function playRound(playerChoice, computerChoice) {
   } else if (playerChoice === "rock") {
     if (computerChoice === "paper") {
       alert("You lose. Paper beats rock.")
-      return "computer";
+      return computer;
     } else if (computerChoice === "scissors") {
-      return "You win that round.";
+      return "You win.";
     }
   } else if (playerChoice === "scissors") {
     if (computerChoice === "paper") {
-      return "You win that round.";
+      return "You win.";
     } else if (computerChoice === "rock") {
       alert("You lose. Rock beats scissors.");
       return "computer";
@@ -46,41 +45,35 @@ function playRound(playerChoice, computerChoice) {
 }
 
 function playerChoice() {
-  let pick = prompt("Pick rock, paper, or scissors.");
+  let pick = prompt("Pick rock, paper, or scissors. Type end to end");
   let final = pick.toLowerCase();
   return final;
 }
 
-function game() {
-  let rounds = prompt("How many rounds?");
-  alert(`Best out of ${rounds}.`);
+function game(player, computer) {
   let playerScore = 0;
   let compScore = 0;
   let game = 0;
-  let i = 0;
-  while (i < rounds) {
-    i++
-    game = playRound(playerChoice(), computerPlay());
-
-    if (game === "Tie." || game === "That is not an option.") {
-      alert(game + `  Score is Player:${playerScore}  Computer:${compScore}`);
-    } else if (game === "You win that round.") {
+  for (let i = 0; i >= 5; i++) {
+    game = playRound(player, computer);
+    if (game === "Tie" || game === "That is not an option") {
+      alert(game);
+    } else if (game === "You win.") {
       playerScore++;
-      alert(game + ` Score is Player:${playerScore}  Computer:${compScore}`);
+      alert(game);
     } else {
       compScore++;
-      alert(`Computer won that round.  Score is Player:${playerScore}  Computer:${compScore}`);
+      alert(game);
     }
   }
-
   if (compScore > playerScore) {
-    alert("Computer wins the game.");
+    alert("Computer wins.");
   } else if (playerScore > compScore) {
-    alert("You win the game.");
+    alert("You win.");
   } else {
     alert("Tie game.")
   }
 }
-//let button = document.querySelector("button");
+let button = document.querySelector("button");
 
-//button.onclick = game()
+button.onclick = game(playerChoice(), computerPlay())
