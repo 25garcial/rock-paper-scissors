@@ -75,4 +75,4 @@ function game(player, computer){
         }
     }
 }
-game(playerChoice(), computerPlay());
+button.onclick=game(playerChoice(), computerPlay());
