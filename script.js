@@ -58,10 +58,6 @@ function playerChoice() {
 function game() {
 
 let rounds= prompt("How many rounds?");
-while (typeof(Number(rounds))!="number"){
-
-  rounds = prompt("How many rounds?");
-  }
   alert(`Best out of ${rounds}.`);
   let playerScore = 0;
   let compScore = 0;
