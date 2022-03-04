@@ -22,15 +22,17 @@ function playRound(playerChoice, computerChoice){
     else if (playerChoice==="paper"){
     
       if (computerChoice==="rock"){
-        return "You Win.";
+        return "You win.";
       }
       else if (computerChoice==="scissors"){
-        return "You lose. Scissors beats paper.";
+        return "computer";
+        alert("You lose. Scissors beats paper.");
       }
     }
     else if (playerChoice==="rock"){
       if (computerChoice==="paper"){
-        return "You lose. Paper beats rock.";
+        return computer;
+        alert("You lose. Paper beats rock.")
       }
       else if (computerChoice==="scissors"){
         return "You win.";
@@ -41,7 +43,8 @@ function playRound(playerChoice, computerChoice){
         return "You win.";
      }
       else if (computerChoice==="rock"){
-        return "You lose. Rock beats scissors.";
+        return "computer";
+        alert("You lose. Rock beats scissors.");
       }
     }
     else{
@@ -54,6 +57,22 @@ function playerChoice(){
     return final;
 }
 function game(player, computer){
-    alert(playRound(player, computer));
+    let playerScore=0;
+    let compScore=0;
+    let game=0;
+    for (let i=0, i>=5, i++){
+        game=playRound(player, computer);
+        if (game==="Tie" || game==="That is not an option"){
+            alert(game);
+        }
+        else if (game==="You win."){
+            playerScore++;
+            alert(game);
+        }
+        else{
+            compScore++;
+            alert(game);
+        }
+    }
 }
 game(playerChoice(), computerPlay());
