@@ -4,10 +4,11 @@ body {
   bottom: 100%;
   }
 button {
-  background-color: red;
+  background-color: blue;
   border-width: 0px;
   top: 50%;
   position: absolute;
+  border-radius: 10px;
   
   }
 button:hover{
