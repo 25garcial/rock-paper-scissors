@@ -8,6 +8,7 @@ button {
   border-width: 0px;
   position: absolute;
   border-radius: 10px;
+  color: lime;
   
   }
 button:hover{
