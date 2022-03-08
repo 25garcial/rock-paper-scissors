@@ -6,9 +6,12 @@ body {
 button {
   background-color: blue;
   border-width: 0px;
+  font-weight: 500;
   position: absolute;
   border-radius: 10px;
-  color: lime;
+  color: green;
+  width: 100px;
+  height: 60px;
   
   }
 button:hover{
