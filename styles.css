@@ -4,11 +4,11 @@ body {
   bottom: 100%;
   }
 button {
-  background-color: blue;
+  background-color: lightblue;
   border-width: 0px;
   font-weight: 500;
   border-radius: 10px;
-  color: red;
+  
   width: 200px;
   text-size: 14px;
   height: 45px;
