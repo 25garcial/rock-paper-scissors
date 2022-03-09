@@ -8,9 +8,9 @@ button {
   border-width: 0px;
   font-weight: 500;
   border-radius: 10px;
-  color: green;
+  color: red;
   width: 200px;
-  height: 60px;
+  height: 45px;
   
   }
 button:hover{
