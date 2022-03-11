@@ -12,6 +12,7 @@ function computerPlay() {
 }
 
 
+
 function playRound(playerChoice, computerChoice) {
   if (playerChoice === "end") {
     quit();
@@ -43,21 +44,22 @@ function playRound(playerChoice, computerChoice) {
       return "computer";
     }
   } else {
-    
+
     return "That is not an option.";
 
   }
 }
 
-function playerChoice() {
-  let pick = prompt("Pick rock, paper, or scissors.  Type end to end");
-  let final = pick.toLowerCase();
-  return final;
-}
+//function playerChoice(option){
 
-function game() {
+//let final = option.toLowerCase();
+//return final;
+//}
+function game(option) {
 
-let rounds= prompt("How many rounds?");
+
+
+  let rounds = prompt("How many rounds?");
   alert(`Best out of ${rounds}.`);
   let playerScore = 0;
   let compScore = 0;
@@ -65,7 +67,7 @@ let rounds= prompt("How many rounds?");
   let i = 0;
   while (i < rounds) {
     i++
-    game = playRound(playerChoice(), computerPlay());
+    game = playRound(option, computerPlay());
 
     if (game === "Tie." || game === "That is not an option.") {
       alert(game + `  Score is Player:${playerScore}  Computer:${compScore}`);
@@ -86,3 +88,15 @@ let rounds= prompt("How many rounds?");
     alert("Tie game.")
   }
 }
+
+let target = document.getElementsByClassName("rock");
+target[0].addEventListener("click", game("rock"))
+
+target = document.getElementsByClassName("paper");
+target[0].addEventListener("click", game("paper"))
+
+target = document.getElementsByClassName("scissors");
+target[0].addEventListener("click", game("scissors"))
+
+target = document.getElementsByClassName("end");
+target[0].addEventListener("click", game("end"))
