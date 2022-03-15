@@ -13,9 +13,9 @@ function computerPlay() {
 
 
 
-function playRound(playerChoice, computerChoice) {
+function playRound(playerChoice, computerChoice,scores) {
   if (playerChoice === "end") {
-    quit();
+    scores=[0,0];
   }
   console.log(`player choice was ${playerChoice} and computer chose ${computerChoice}`);
   if (playerChoice === computerChoice) {
@@ -55,14 +55,16 @@ function playRound(playerChoice, computerChoice) {
 //let final = option.toLowerCase();
 //return final;
 //}
-function game(option) {
+var scores=[0, 0];
+
+function game(option, scores) {
 
 
-  let playerScore = 0;
-  let compScore = 0;
+  let playerScore = scores[0];
+  let compScore = scores[1];
   let game = 0;
 
-    game = playRound(option, computerPlay());
+    game = playRound(option, computerPlay(), scores);
 
     if (game === "Tie." || game === "That is not an option.") {
       alert(game + `  Score is Player:${playerScore}  Computer:${compScore}`);
@@ -82,16 +84,18 @@ function game(option) {
   } else {
     alert("Tie game.")
   }
+  var scores=[playerScore, compScore]
+  return scores;
+  
 }
-
 let target = document.getElementsByClassName("rock");
-target[0].addEventListener("click", function(){game("rock");})
+target[0].addEventListener("click", function(){scores=game("rock", scores);})
 
 target = document.getElementsByClassName("paper");
-target[0].addEventListener("click", function(){game("paper");})
+target[0].addEventListener("click", function(){scores=game("paper", scores);})
 
 target = document.getElementsByClassName("scissors");
-target[0].addEventListener("click", function() {game("scissors");})
+target[0].addEventListener("click", function() {scores=game("scissors", scores);})
 
 target = document.getElementsByClassName("end");
-target[0].addEventListener("click", function(){game("end");})
+target[0].addEventListener("click", function(){game(["end", scores]);})
