@@ -10,14 +10,17 @@ button {
   border-radius: 10px;
   
   width: 200px;
-  text-size: 14px;
+  font-size: 14px;
   height: 45px;
   
   }
 button:hover{
   border-width: 3px;
-  border-radius:15px;
-  width: 250px;
-  height: 65px;
-  border-color: blue;
+  border-radius: 15px;
+  width: 210px;
+  height: 50px;
+  border-color: lightblue;
+  }
+  .quit{
+    transform: translate(0, 100px);
   }
