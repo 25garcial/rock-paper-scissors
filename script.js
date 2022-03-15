@@ -85,13 +85,13 @@ function game(option) {
 }
 
 let target = document.getElementsByClassName("rock");
-target[0].addEventListener("click", game("rock"))
+target[0].addEventListener("click", function(){game("rock");})
 
 target = document.getElementsByClassName("paper");
-target[0].addEventListener("click", game("paper"))
+target[0].addEventListener("click", function(){game("paper");})
 
 target = document.getElementsByClassName("scissors");
-target[0].addEventListener("click", game("scissors"))
+target[0].addEventListener("click", function() {game("scissors");})
 
 target = document.getElementsByClassName("end");
-target[0].addEventListener("click", game("end"))
+target[0].addEventListener("click", function(){game("end");})
