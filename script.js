@@ -58,15 +58,10 @@ function playRound(playerChoice, computerChoice) {
 function game(option) {
 
 
-
-  let rounds = prompt("How many rounds?");
-  alert(`Best out of ${rounds}.`);
   let playerScore = 0;
   let compScore = 0;
   let game = 0;
-  let i = 0;
-  while (i < rounds) {
-    i++
+
     game = playRound(option, computerPlay());
 
     if (game === "Tie." || game === "That is not an option.") {
@@ -78,7 +73,7 @@ function game(option) {
       compScore++;
       alert(`Computer won that round.  Score is Player:${playerScore}  Computer:${compScore}`);
     }
-  }
+  
 
   if (compScore > playerScore) {
     alert("Computer wins the game.");
