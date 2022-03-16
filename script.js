@@ -28,7 +28,8 @@ function playRound(playerChoice, computerChoice, scores) {
       outcome.textContent="Tie game.";
     }else{
     outcome.textContent="Computer wins the game"}
-    scores = [0, 0];
+     scores = [0,0];
+      
     scoreDoc.textContent="Score is Player:0 Computer:0"
   }
   console.log(`player choice was ${playerChoice} and computer chose ${computerChoice}`);
