@@ -22,7 +22,12 @@ function playRound(playerChoice, computerChoice, scores) {
  
   if (playerChoice === "end") {
   reason.textContent="";
-  outcome.textContent="";
+    if (scores[0]>scores[1]{
+    outcome.textContent="You win the game.";
+        }else if (scores[0]==scores[1]){
+      outcome.textContent="Tie game.";
+    }else{
+    outcome.textContent="Computer wins the game}
     scores = [0, 0];
     scoreDoc.textContent="Score is Player:0 Computer:0"
   }
