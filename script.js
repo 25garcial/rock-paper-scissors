@@ -28,7 +28,8 @@ function playRound(playerChoice, computerChoice, scores) {
       outcome.textContent="Tie game.";
     }else{
     outcome.textContent="Computer wins the game"}
-     scores = [0,0];
+     scores[0]=0;
+     scores[1]=0;
       
     scoreDoc.textContent="Score is Player:0 Computer:0"
   }
@@ -106,13 +107,6 @@ function game(option, scores) {
   var scores = [playerScore, compScore]
   return scores;
 }
-
-
-
-
-
-
-
 
 let target = document.getElementsByClassName("rock");
 target[0].addEventListener("click", function() {
