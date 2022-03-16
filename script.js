@@ -19,15 +19,15 @@ var outcome = document.getElementsByClassName("outcome");
 var outcome = outcome[0];
 
 function playRound(playerChoice, computerChoice, scores) {
- 
-  if (playerChoice === "end") {
+
+ if (playerChoice === "end") {
   reason.textContent="";
-    if (scores[0]>scores[1]{
+    if (scores[0]>scores[1]){
     outcome.textContent="You win the game.";
         }else if (scores[0]==scores[1]){
       outcome.textContent="Tie game.";
     }else{
-    outcome.textContent="Computer wins the game}
+    outcome.textContent="Computer wins the game"}
     scores = [0, 0];
     scoreDoc.textContent="Score is Player:0 Computer:0"
   }
@@ -70,29 +70,49 @@ function playRound(playerChoice, computerChoice, scores) {
 //return final;
 //}
 var scores = [0, 0];
+
 function game(option, scores) {
+
   let playerScore = scores[0];
   let compScore = scores[1];
   let game = 0;
+
   game = playRound(option, computerPlay(), scores);
 
   if (game === "Tie.") {
-  outcome.textContent="Tie.";
-  reason.textContent="You both played the same thing."
+    outcome.textContent = "Tie.";
+    reason.textContent = "You both played the same thing."
     scoreDoc.textContent = `Score is Player:${playerScore}  Computer:${compScore}`;
   } else if (game === "You win that round.") {
     playerScore++;
-    outcome.textContent=game;
-    reason.textContent= ""
+    outcome.textContent = game;
+    reason.textContent = ""
     scoreDoc.textContent = `Score is Player:${playerScore}  Computer:${compScore}`;
-  } else if (game=="computer"){
+  } else if (game == "computer") {
     compScore++;
-    outcome.textContent="You lost that round."
+    outcome.textContent = "You lost that round."
     scoreDoc.textContent = `Score is Player:${playerScore}  Computer:${compScore}`;
   }
+
+  //
+  //if (compScore > playerScore) {
+  // outcome.textContent = "Computer wins that round.  ";
+  //  } else if (playerScore > compScore) {
+  //    outcome.textContent = "You won that round.  ";
+  //  } else {
+  //    outcome.textContent = "Tie round.  "
+  //  }
   var scores = [playerScore, compScore]
   return scores;
 }
+
+
+
+
+
+
+
+
 let target = document.getElementsByClassName("rock");
 target[0].addEventListener("click", function() {
   scores = game("rock", scores);
