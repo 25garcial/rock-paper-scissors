@@ -11,11 +11,20 @@ function computerPlay() {
 
 }
 
+var selector = document.getElementsByClassName("score");
+var scoreDoc = selector[0];
+var reason = document.getElementsByClassName("reason");
+var reason = reason[0];
+var outcome = document.getElementsByClassName("outcome");
+var outcome = outcome[0];
 
-
-function playRound(playerChoice, computerChoice,scores) {
+function playRound(playerChoice, computerChoice, scores) {
+ 
   if (playerChoice === "end") {
-    scores=[0,0];
+  reason.textContent="";
+  outcome.textContent="";
+    scores = [0, 0];
+    scoreDoc.textContent="Score is Player:0 Computer:0"
   }
   console.log(`player choice was ${playerChoice} and computer chose ${computerChoice}`);
   if (playerChoice === computerChoice) {
@@ -26,12 +35,12 @@ function playRound(playerChoice, computerChoice,scores) {
     if (computerChoice === "rock") {
       return "You win that round.";
     } else if (computerChoice === "scissors") {
-      alert("You lose. Scissors beats paper.");
+      reason.textContent = "Scissors beats paper.";
       return "computer";
     }
   } else if (playerChoice === "rock") {
     if (computerChoice === "paper") {
-      alert("You lose. Paper beats rock.")
+      reason.textContent = "Paper beats rock."
       return "computer";
     } else if (computerChoice === "scissors") {
       return "You win that round.";
@@ -40,7 +49,7 @@ function playRound(playerChoice, computerChoice,scores) {
     if (computerChoice === "paper") {
       return "You win that round.";
     } else if (computerChoice === "rock") {
-      alert("You lose. Rock beats scissors.");
+      reason.textContent = "Rock beats scissors.";
       return "computer";
     }
   } else {
@@ -55,47 +64,46 @@ function playRound(playerChoice, computerChoice,scores) {
 //let final = option.toLowerCase();
 //return final;
 //}
-var scores=[0, 0];
-
+var scores = [0, 0];
 function game(option, scores) {
-
-
   let playerScore = scores[0];
   let compScore = scores[1];
   let game = 0;
+  game = playRound(option, computerPlay(), scores);
 
-    game = playRound(option, computerPlay(), scores);
-
-    if (game === "Tie." || game === "That is not an option.") {
-      alert(game + `  Score is Player:${playerScore}  Computer:${compScore}`);
-    } else if (game === "You win that round.") {
-      playerScore++;
-      alert(game + ` Score is Player:${playerScore}  Computer:${compScore}`);
-    } else {
-      compScore++;
-      alert(`Computer won that round.  Score is Player:${playerScore}  Computer:${compScore}`);
-    }
-  
-
-  if (compScore > playerScore) {
-    alert("Computer wins the game.");
-  } else if (playerScore > compScore) {
-    alert("You win the game.");
-  } else {
-    alert("Tie game.")
+  if (game === "Tie.") {
+  outcome.textContent="Tie.";
+  reason.textContent="You both played the same thing."
+    scoreDoc.textContent = `Score is Player:${playerScore}  Computer:${compScore}`;
+  } else if (game === "You win that round.") {
+    playerScore++;
+    outcome.textContent=game;
+    reason.textContent= ""
+    scoreDoc.textContent = `Score is Player:${playerScore}  Computer:${compScore}`;
+  } else if (game=="computer"){
+    compScore++;
+    outcome.textContent="You lost that round."
+    scoreDoc.textContent = `Score is Player:${playerScore}  Computer:${compScore}`;
   }
-  var scores=[playerScore, compScore]
+  var scores = [playerScore, compScore]
   return scores;
-  
 }
 let target = document.getElementsByClassName("rock");
-target[0].addEventListener("click", function(){scores=game("rock", scores);})
+target[0].addEventListener("click", function() {
+  scores = game("rock", scores);
+})
 
 target = document.getElementsByClassName("paper");
-target[0].addEventListener("click", function(){scores=game("paper", scores);})
+target[0].addEventListener("click", function() {
+  scores = game("paper", scores);
+})
 
 target = document.getElementsByClassName("scissors");
-target[0].addEventListener("click", function() {scores=game("scissors", scores);})
+target[0].addEventListener("click", function() {
+  scores = game("scissors", scores);
+})
 
 target = document.getElementsByClassName("end");
-target[0].addEventListener("click", function(){game(["end", scores]);})
+target[0].addEventListener("click", function() {
+  game("end", scores);
+})
